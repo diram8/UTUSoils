@@ -1,0 +1,30 @@
+---
+output: Interactive PCA
+  pdf_document: default
+---
+
+
+```{r}
+library(tidyverse)
+library(plotly)
+library(factoextra)
+library(FactoMineR)
+library(corrplot)
+```
+
+```{r}
+# Load data
+soil_pca <- prcomp(XRF_PCA_Data_Sheet1_1_[, -1],  scale = TRUE)
+```
+
+```{r}
+# Create general PCA plots with points
+graph1 <- fviz_pca_ind(soil_pca, repel = T)
+
+graph2 <- graph1 + geom_point(aes(color = XRF_PCA_Data_Sheet1_1_$Site))
+```
+
+```{r}
+# Interactive PCA Plot
+ggplotly(graph2)
+```

@@ -1,0 +1,179 @@
+---
+title: "XRF Vertical"
+output:
+  pdf_document: default
+  html_notebook: default
+---
+
+```{r}
+library(tidyverse)
+library(openintro)
+library(ggplot2)
+
+library(readxl)
+R_XRF_Data_1_ <- read_excel("R_XRF_Data (1).xlsx", 
+    sheet = "Vertical")
+```
+```{r}
+#PL1
+ggplot(data = R_XRF_Data_1_[1:7,], aes(x = Al2O3, y = Depth,rev(range(Depth)), colour = Site)) +
+ggtitle("PL1") +
+labs(x="Al2O3 (wt %)", y="Depth (cm)") +
+geom_path() +
+geom_point(aes(shape = Site, color= Site), size=2, shape = 0) +
+scale_y_reverse() +
+scale_x_continuous(position="top",limit = c(15,40))
+
+#PL2
+ggplot(data = R_XRF_Data_1_[8:14,], aes(x = Al2O3, y = Depth,rev(range(Depth)), colour = Site)) +
+ggtitle("PL2") +
+labs(x="Al2O3 (wt %)", y="Depth (cm)") +
+geom_path() +
+geom_point(aes(shape=Site, color=Site), size=2, shape = 1) +
+scale_y_reverse() +
+scale_x_continuous(position="top",limit = c(15,40))
+
+#PL3
+ggplot(data = R_XRF_Data_1_[15:20,], aes(x = Al2O3, y = Depth,rev(range(Depth)), colour = Site)) +
+ggtitle("PL3") +
+labs(x="Al2O3 (wt %)", y="Depth (cm)") +
+geom_path() +
+geom_point(aes(shape=Site, color=Site), size=2, shape = 5) +
+scale_y_reverse() +
+scale_x_continuous(position="top",limit = c(15,40))
+
+#PL4
+ggplot(data = R_XRF_Data_1_[21:26,], aes(x = Al2O3, y = Depth,rev(range(Depth)), colour = Site)) +
+ggtitle("PL4") +
+labs(x="Al2O3 (wt %)", y="Depth (cm)") +
+geom_path() +
+geom_point(aes(shape=Site, color=Site), size=2, shape = 2) +
+scale_y_reverse() +
+scale_x_continuous(position="top",limit = c(15,40))
+```
+
+```{r}
+#PL1
+ggplot(data = R_XRF_Data_1_[1:7,], aes(x = SiO2, y = Depth,rev(range(Depth)), colour = Site)) +
+ggtitle("PL1") +
+labs(x="SiO2 (wt %)", y="Depth (cm)") +
+geom_path() +
+geom_point(aes(shape = Site, color= Site), size=2, shape = 0) +
+scale_y_reverse() +
+scale_x_continuous(position="top",limit = c(45,75))
+
+#PL2
+ggplot(data = R_XRF_Data_1_[8:14,], aes(x = SiO2, y = Depth,rev(range(Depth)), colour = Site)) +
+ggtitle("PL2") +
+labs(x="SiO2 (wt %)", y="Depth (cm)") +
+geom_path() +
+geom_point(aes(shape=Site, color=Site), size=2, shape = 1) +
+scale_y_reverse() +
+scale_x_continuous(position="top",limit = c(45,75))
+
+#PL3
+ggplot(data = R_XRF_Data_1_[15:20,], aes(x = SiO2, y = Depth,rev(range(Depth)), colour = Site)) +
+ggtitle("PL3") +
+labs(x="SiO2 (wt %)", y="Depth (cm)") +
+geom_path() +
+geom_point(aes(shape=Site, color=Site), size=2, shape = 5) +
+scale_y_reverse() +
+scale_x_continuous(position="top",limit = c(45,75))
+
+#PL4
+ggplot(data = R_XRF_Data_1_[21:26,], aes(x = SiO2, y = Depth,rev(range(Depth)), colour = Site)) +
+ggtitle("PL4") +
+labs(x="SiO2 (wt %)", y="Depth (cm)") +
+geom_path() +
+geom_point(aes(shape=Site, color=Site), size=2, shape = 2) +
+scale_y_reverse() +
+scale_x_continuous(position="top",limit = c(45,75))
+```
+
+```{r}
+#Map individual SiO2
+
+#SS7
+ggplot(data = R_XRF_Data_1_[46:51,], aes(x = SiO2, y = Depth,rev(range(Depth)), colour = Site)) +
+ggtitle("SS7") +
+labs(x="SiO2 (wt %)", y="Depth (cm)") +
+geom_line() +
+geom_point(aes(shape=Site, color=Site), size=2, shape = 25) +
+scale_color_manual(values = c("#6955E8")) +
+scale_y_reverse() +
+scale_x_continuous(position="top",limit = c(56, 70))
+
+#SS5
+ggplot(data = R_XRF_Data_1_[45:40,], aes(x = SiO2, y = Depth,rev(range(Depth)), colour = Site)) +
+ggtitle("SS5") +
+labs(x="SiO2 (wt %)", y="Depth (cm)") +
+geom_line() +
+geom_point(aes(shape=Site, color=Site), size=2, shape = 3) +
+scale_color_manual(values = c("#6955E8")) +
+scale_y_reverse() +
+scale_x_continuous(position="top",limit = c(56, 70))
+
+#SS4
+ggplot(data = R_XRF_Data_1_[39:34,], aes(x = SiO2, y = Depth,rev(range(Depth)), colour = Site)) +
+ggtitle("SS4") +
+labs(x="SiO2 (wt %)", y="Depth (cm)") +
+geom_line() +
+geom_point(aes(shape=Site, color=Site), size=2, shape = 24) +
+scale_color_manual(values = c("#6955E8")) +
+scale_y_reverse() +
+scale_x_continuous(position="top",limit = c(56, 70))
+
+#SS1
+ggplot(data = R_XRF_Data_1_[33:27,], aes(x = SiO2, y = Depth,rev(range(Depth)), colour = Site)) +
+ggtitle("SS1") +
+labs(x="SiO2 (wt %)", y="Depth (cm)") +
+geom_line() +
+geom_point(aes(shape=Site, color=Site), size=2, shape = 22) +
+scale_color_manual(values = c("#6955E8")) +
+scale_y_reverse() +
+scale_x_continuous(position="top",limit = c(56, 70))
+```
+
+```{r}
+#Map individual Al2O3
+
+#SS7
+ggplot(data = R_XRF_Data_1_[46:51,], aes(x = Al2O3, y = Depth,rev(range(Depth)), colour = Site)) +
+ggtitle("SS7") +
+labs(x="Al2O3 (wt %)", y="Depth (cm)") +
+geom_line() +
+geom_point(aes(color=Site), size=2, shape = 25) +
+scale_color_manual(values = c("#6955E8")) +
+scale_y_reverse() +
+scale_x_continuous(position="top",limit = c(15, 40))
+
+#SS5
+ggplot(data = R_XRF_Data_1_[45:40,], aes(x = Al2O3, y = Depth,rev(range(Depth)), colour = Site)) +
+ggtitle("SS5") +
+labs(x="Al2O3 (wt %)", y="Depth (cm)") +
+geom_line() +
+geom_point(aes(shape=Site, color=Site), size=2, shape = 3) +
+scale_color_manual(values = c("#6955E8")) +
+scale_y_reverse() +
+scale_x_continuous(position="top",limit = c(15, 40))
+
+#SS4
+ggplot(data = R_XRF_Data_1_[39:34,], aes(x = Al2O3, y = Depth,rev(range(Depth)), colour = Site)) +
+ggtitle("SS4") +
+labs(x="Al2O3 (wt %)", y="Depth (cm)") +
+geom_line() +
+geom_point(aes(shape=Site, color=Site), size=2, shape = 24) +
+scale_color_manual(values = c("#6955E8")) +
+scale_y_reverse() +
+scale_x_continuous(position="top",limit = c(15, 40))
+
+#SS1
+ggplot(data = R_XRF_Data_1_[33:27,], aes(x = Al2O3, y = Depth,rev(range(Depth)), colour = Site)) +
+ggtitle("SS1") +
+labs(x="Al2O3 (wt %)", y="Depth (cm)") +
+geom_line() +
+geom_point(aes(shape=Site, color=Site), size=2, shape = 22) +
+scale_color_manual(values = c("#6955E8")) +
+scale_y_reverse() +
+scale_x_continuous(position="top",limit = c(15, 40))
+```
