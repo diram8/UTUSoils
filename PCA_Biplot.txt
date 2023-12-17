@@ -1,0 +1,15 @@
+# install.packages("devtools")
+library("devtools")
+
+## Loading required package: usethis
+install_github("kassambara/factoextra")
+
+library("factoextra")
+
+library(readr)
+
+R_XRF_Data_Biplot_2_ <- read_csv("R_XRF_Data - Biplot (2).csv")
+
+# before the PCA analysis
+res.pca <- prcomp(R_XRF_Data_Biplot_2_[, -1], scale = TRUE)
+fviz_pca_ind(res.pca, repel = T)
